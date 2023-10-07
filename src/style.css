@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  /* font-family: 'Merriweather', serif; */
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+  display: block;
+  align-self: center;
+}
