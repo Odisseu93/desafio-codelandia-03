@@ -24,9 +24,16 @@ export default {
 				warning: '#FFCE52',
 				error: '#F03D3D',
 				info: '#E0E0E0',
-			}
+			},
     },
+
+		fontFamily: {
+			'Lato': "'Lato', sans-serif",
+			'Merriweather': "'Merriweather', serif"
+		},
+
     extend: {},
+
   },
   plugins: [],
 }
