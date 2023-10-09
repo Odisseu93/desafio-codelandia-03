@@ -1,47 +1,46 @@
 <script setup lang="ts">
+import { cards } from '../mock/cards'
 import { toast } from 'vue3-toastify'
+import { objectToCssClasses as convert } from '../utils/objectToCssClasses'
 import 'vue3-toastify/dist/index.css'
 
-const uuid = () => crypto.randomUUID()
+const { container, list, item, square, title, paragraph } = {
+	container: {
+		display: 'flex',
+		alignments: 'flex-col justify-center items-center',
+		spacing: 'pt-[5rem]',
+	},
 
-const cards = [
-	{
-		id: uuid(),
-		color: '#FF6363',
-		title: 'Título do card',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in neque et nisl.',
+	list: {
+		display: 'flex',
+		alignments: 'flex-col justify-center items-center',
+		spacing: 'gap-10',
+		breakpoints:
+			'max-w-[1900px] md:gap-16 md:flex-row md:flex-wrap lg:gap-28 min-[1836px]:px-[10rem]',
 	},
-	{
-		id: uuid(),
-		color: '#63ECFF',
-		title: 'Título do card',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in neque et nisl.',
+
+	item: {
+		sizes: 'w-[375px]',
+		breakpoints: 'md:hover:opacity-80 md:cursor-pointer',
 	},
-	{
-		id: uuid(),
-		color: '#F363FF',
-		title: 'Título do card',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in neque et nisl.',
+
+	square: {
+		sizes: 'w-full',
+		spacing: 'py-28',
 	},
-	{
-		id: uuid(),
-		color: '#63FF73',
-		title: 'Título do card',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in neque et nisl.',
+
+	title: {
+		display: 'block',
+		tipograph: 'font-[700] text-[2rem] font-Merriweather',
+		spacing: 'pt-3 ps-8',
 	},
-	{
-		id: uuid(),
-		color: '#FFDD63',
-		title: 'Título do card',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in neque et nisl.',
+
+	paragraph: {
+		display: 'block',
+		tipograph: 'font-Lato text-dark-20',
+		spacing: 'w-5/6 pt-4 ps-8',
 	},
-	{
-		id: uuid(),
-		color: '#6663FF',
-		title: 'Título do card',
-		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in neque et nisl.',
-	},
-]
+}
 
 const notify = (msg: string) => {
 	toast(`${msg}!`, {
@@ -52,27 +51,25 @@ const notify = (msg: string) => {
 </script>
 
 <template>
-	<div class="flex flex-col justify-center pt-[5rem] items-center">
-		<ul
-			class="flex flex-col items-center justify-center gap-10 card-list max-w-[1900px] md:gap-16 md:flex-row md:flex-wrap lg:gap-28 min-[1836px]:px-[10rem]"
-		>
+	<main :class="convert(container)">
+		<ul :class="convert(list)">
 			<li
 				v-for="(card, index) in cards"
-				class="w-[375px] md:hover:opacity-80 md:cursor-pointer"
+				:class="convert(item)"
 				:key="card.id"
 				@click="notify(`Voce clicou no card ${index + 1}!`)"
 			>
 				<div
-					class="w-full py-28 square"
+					:class="convert(square)"
 					:style="`background-color: ${card.color};`"
 				></div>
-				<h3 class="font-Merriweather font-[700] text-[2rem] pt-3 block ps-8">
+				<h3 :class="convert(title)">
 					{{ card.title }}
 				</h3>
-				<p class="block w-5/6 pt-4 font-Lato text-dark-20 ps-8">
+				<p :class="convert(paragraph)">
 					{{ card.text }}
 				</p>
 			</li>
 		</ul>
-	</div>
+	</main>
 </template>
