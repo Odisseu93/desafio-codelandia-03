@@ -1,1 +1,1 @@
-export const objectToCssClasses = (obj: object) => Object.values(obj).join(' ')
+export const objectToCssClasses = (obj: object) => Object.values(obj)
