@@ -1,5 +1,6 @@
 <script setup lang="ts"> 
 import CardList from './components/CardList.vue';
+import Form from './components/Form.vue';
 import Hero from './components/Hero.vue';
 import { ToastifyContainer } from 'vue3-toastify'
 
@@ -9,4 +10,5 @@ import { ToastifyContainer } from 'vue3-toastify'
   <ToastifyContainer/>
   <Hero/>
   <CardList/>
+  <Form/>
 </template>
