@@ -34,7 +34,7 @@ const { container, title, form, input, submit } = {
 
 	form: {
 		display: 'flex',
-		size: 'w-[373px]',
+		size: 'w-[373px] max-w-[90vw]',
 		alignments: 'flex-col',
 		spacing: 'gap-5 px-3 pt-7 pb-10 mx-auto',
 	},
