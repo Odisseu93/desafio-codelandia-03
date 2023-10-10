@@ -28,3 +28,7 @@ a {
   display: block;
   align-self: center;
 }
+
+#app {
+  overflow-x: hidden;
+}
