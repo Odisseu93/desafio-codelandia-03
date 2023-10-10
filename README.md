@@ -49,7 +49,7 @@ para rodar o projeto, siga os passo abaixo:
 **Autor: [Iuri Silva](https://www.instagram.com/iuricode/)**
 
 ## Live site
-**[🔗️]()**
+**[🔗️](https://desafio-codelandia-03.vercel.app/)**
 
 ## Screenshots
 
